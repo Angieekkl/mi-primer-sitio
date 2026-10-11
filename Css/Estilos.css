@@ -1,0 +1,234 @@
+/* ==========================================
+   1. VARIABLES DE COLOR Y CONFIGURACIÓN BASE
+   ========================================== */
+:root {
+    --color-fondo: #26211d;            /* Fondo oscuro más suave y cálido (no negro puro) */
+    --color-superficie: #332b25;       /* Fondo para tarjetas y bloques más iluminado */
+    --color-texto: #f9f6f0;            /* Texto principal en color crema claro */
+    --color-texto-secundario: #d1c7bc; /* Texto atenuado legible */
+    --color-naranja-fuego: #e63922;    /* Naranja fuerte que roza el rojo */
+    --color-naranja: #f48c06;          /* Naranja normal vibrante */
+    --color-crema: #ffb703;            /* Amarillo crema suave y cálido */
+    --borde-radio: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   2. ENCABEZADO Y MENÚ DE NAVEGACIÓN
+   ========================================== */
+header {
+    background: linear-gradient(135deg, #332b25 0%, #423730 100%);
+    border-bottom: 3px solid var(--color-naranja-fuego);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.contenedor-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-crema);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contenedor-header p {
+    color: var(--color-texto-secundario);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--color-texto);
+    background-color: rgba(244, 140, 6, 0.2);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--color-naranja);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--color-naranja-fuego);
+    border-color: var(--color-naranja-fuego);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(230, 57, 34, 0.5);
+}
+
+/* ==========================================
+   3. DISTRIBUCIÓN PRINCIPAL (CONTENIDO + ASIDE)
+   ========================================== */
+.contenedor-principal {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .contenedor-principal {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   4. SECCIONES Y ARTÍCULOS
+   ========================================== */
+section {
+    background-color: var(--color-superficie);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: var(--borde-radio);
+    border-left: 5px solid var(--color-naranja);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+section h2 {
+    color: var(--color-crema);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 183, 3, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+article h3 {
+    color: var(--color-naranja);
+    margin: 1.2rem 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+article p {
+    margin-bottom: 1rem;
+    color: var(--color-texto-secundario);
+}
+
+article ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-texto-secundario);
+}
+
+article li {
+    margin-bottom: 0.5rem;
+}
+
+/* Estilos de Imágenes Visuales */
+.imagen-portada {
+    width: 90%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 2px solid var(--color-crema);
+}
+
+.imagen-articulo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border: 2px solid rgba(244, 140, 6, 0.3);
+}
+
+.imagen-aside {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+    border: 1px solid var(--color-naranja);
+}
+
+/* ==========================================
+   5. TARJETAS Y GRID DE INFORMACIÓN (2 arriba, 2 abajo)
+   ========================================== */
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Fuerza exactamente 2 columnas simétricas */
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+/* Opcional: Para que en celulares muy chicos baje a 1 columna automáticamente */
+@media (max-width: 600px) {
+    .grid-tarjetas {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tarjeta {
+    background-color: #3d332c;
+    border: 1px solid rgba(244, 140, 6, 0.3);
+    padding: 1.2rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-crema);
+}
+
+.tarjeta h4 {
+    color: var(--color-crema);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================
+   6. SECCIÓN LATERAL (CURIOSIDADES - ASIDE)
+   ========================================== */
+.barra-lateral {
+    background-color: var(--color-superficie);
+    padding: 1.5rem;
+    border-radius: var(--borde-radio);
+    border-top: 5px solid var(--color-naranja-fuego);
+    height: fit-content;
+}
+
+.barra-lateral h3 {
+    color: var(--color-crema);
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+}
+
+.barra-lateral p {
+    font-size: 0.95rem;
+    color: var(--color-texto-secundario);
+}
+
+/* ==========================================
+   7. PIE DE PÁGINA (FOOTER)
+   ========================================== */
+footer {
+    background-color: #1a1613;
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-texto-secundario);
+    border-top: 2px solid #423730;
+    margin-top: 3rem;
+}
